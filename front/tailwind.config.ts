@@ -5,6 +5,8 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/types/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/views/**/*.{js,ts,jsx,tsx,mdx}" 
   ],
   theme: {
     extend: {
@@ -14,8 +16,8 @@ export default {
         colorSecundario: "var(--colorSecundario)",
         colorTerciario: "var(--colorTerciario)",
         opcional1: "var(--opcional1)",
-        opcional2: "var(--opcional2)",
-        opcional3: "var(--opcional3)",
+        texto: "var(--texto)",
+        texto2: "var(--texto2)",
       },
     },
   },

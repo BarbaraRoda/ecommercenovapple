@@ -11,3 +11,12 @@ export const checkProductExists = async (itemId: number): Promise<boolean> => {
 export const getProductsService = async (): Promise<Product[]> => {
   return await ProductRepository.find();
 };
+
+export const getProductService = async (id: number): Promise<Product> => {
+    const item: Product | null = await ProductRepository.findOneBy({ id: id });
+
+    if (!item) {
+      throw Error("No existe el producto")
+    }
+ return item;
+};

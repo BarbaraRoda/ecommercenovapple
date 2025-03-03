@@ -4,23 +4,23 @@
 
 :root {
   --background: #ffffff;
-  --colorPrimario: #FCDD8F;
-  --colorSecundario: #FCC84E;
-  --colorTerciario: #50392A;
-  --opcional1: #FCB24E;
-  --opcional2: #88822A;
-  --opcional3: #FFF3D9;
+  --colorPrimario: #2e0553;
+  --colorSecundario: #FFF3D9;
+  --colorTerciario: #3671F5;
+  --opcional1: #AA8BF4;
+  --texto: #0D0317;
+  --texto2: #E3FFF5;
 }
 
 
 
 body {
-  color: var(--foreground);
+  color: var(--texto);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Reset CSS basado en normalize.css y Tailwind Preflight */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 html, body, div, span, applet, object, iframe,
