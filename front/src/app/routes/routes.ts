@@ -1,9 +1,9 @@
 export const routes = {
-    home: "/",
+    home: "/home",
     product_detail: "/product/detail",
     login: "/auth/login",
     register: "/auth/register",
     dashboard: "/dashboard",
-    landing:"/landing",
+    landing:"/",
     cart: "/cart"
 }

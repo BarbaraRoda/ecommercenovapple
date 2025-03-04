@@ -46,20 +46,24 @@ const CartView = () => {
     
 
     return (
-        <div>
-            <div className="flex justify-between w-full items-center">
-                <h2>Carrito de compras</h2>
-                <Button 
+        <div className="bg-background min-h-screen p-6">
+            <div className="flex justify-between items-center mb-6">
+                <h2 className="text-texto text-2xl font-bold">Carrito de compras</h2>
+                <Button
                     variant="primary"
-                    disabled={!cart.length} 
+                    disabled={!cart.length}
                     onClick={onBuyClick}
                 >
                     Comprar
                 </Button>
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {cart.map((p, idx) => (
-                <CartItem {...p} key={idx} onTrashClick={onTrashClick(p.id)} />
-            ))}
+                    <div key={idx} className="flex flex-col bg-backgroundtext-texto p-4 rounded-lg shadow-lg">
+                        <CartItem {...p} onTrashClick={onTrashClick(p.id)} />
+                    </div>
+                ))}
+            </div>
             {!cart?.length && <p>Todavía no hay nada en tu carrito</p>}
         </div>
     );

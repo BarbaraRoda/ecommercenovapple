@@ -7,7 +7,7 @@ interface VisibleWrapperProps{
     children: React.ReactNode;
 }
 
-const hidePages = [routes.login, routes.register, routes.landing];
+const hidePages = [routes.login, routes.register];
 
 const VisibleWrapper: FC<VisibleWrapperProps>=
 ({children}) => {

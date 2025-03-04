@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { FaTrash } from "react-icons/fa";
 import Button from "./Button";
 
 interface CartItemProps {
@@ -7,44 +8,40 @@ interface CartItemProps {
   quantity: number;
   description: string;
   price: number;
-  onTrashClick: ()=>void;
+  onTrashClick: () => void;
 }
 
 const CartItem: FC<CartItemProps> = ({
   image,
   name,
-  quantity,
   description,
   price,
   onTrashClick
 }) => {
   return (
-    <div className="flex items-center justify-between p-4 border-b border-gray-200">
-      <div className="flex items-center space-x-4">
+    <div className="flex flex-col items-center justify-between p-4 border-b border-gray-200">
+      <div className="flex items-center space-x-4 w-full">
         <img
           src={image}
           alt={name}
           className="w-16 h-16 object-cover rounded-md"
         />
-        <div>
+        <div className="flex-1">
           <p className="text-sm text-gray-500">{name}</p>
           <p className="text-xs text-gray-400">{description}</p>
         </div>
-        <div>
-          <p className="text-sm text-gray-500">{quantity}</p>
-        </div>
       </div>
-      <div className="flex flex-col items-end">
-        <p className="font-semibold text-xl">${price}</p>
+
+      <p className="font-semibold text-xl mt-4">${price}</p>
+
+      <div className="mt-4 w-full flex justify-center">
+        <Button
+          onClick={onTrashClick}
+          className="bg-colorPrimario text-colorSecundario px-4 py-2 rounded-lg hover:bg-red-600 flex items-center"
+        >
+          <FaTrash className="w-5 h-5" />
+        </Button>
       </div>
-      <span onClick={onTrashClick}>
-            <img 
-              src="https://img.icons8.com/?size=100&id=14237&format=png&color=000000"
-              alt="Eliminar"
-              className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
-            />
-          </span>
-      
     </div>
   );
 };

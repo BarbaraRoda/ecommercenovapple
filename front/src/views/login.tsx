@@ -15,30 +15,30 @@ const loginSchema = Yup.object().shape({
   password: Yup.string().min(6, "Mínimo 6 caracteres").required("La contraseña es obligatoria"),
 });
 
-
 interface FormData {
   email: string;
   password: string;
 }
 
 const Login = () => {
-  usePublic()
-  const {saveUserData} = useAuth();
+  usePublic();
+  const { saveUserData } = useAuth();
   const router = useRouter();
-   const handleOnSubmit = async (values: FormData) => {
-      try {
-          const res = await login(values);
-  
-          toast.success("Iniciaste sesión correctamente!")
-          saveUserData(res)
-          setTimeout(()=>router.push(routes.home), 
-          1500)
 
-      } catch (e: any) {
-          console.warn("Error al loguearse", e?.message)
-          toast.error("Verifica usuario y contraseña");
-      }
-      console.log("Login exitoso", values);
+  const handleOnSubmit = async (values: FormData) => {
+    try {
+      const res = await login(values);
+
+      toast.success("Iniciaste sesión correctamente!");
+      saveUserData(res);
+
+      setTimeout(() => {
+        router.push(routes.home);
+      }, 1000);
+    } catch (e: any) {
+      console.warn("Error al loguearse", e?.message);
+      toast.error("Verifica usuario y contraseña");
+    }
   };
 
   return (

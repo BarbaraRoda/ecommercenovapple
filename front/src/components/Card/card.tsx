@@ -5,6 +5,7 @@ import Button from "../Button";
 import { useCart } from "@/context/cartContext";
 import { useRouter } from "next/navigation";
 import { routes } from "@/app/routes/routes";
+import { FaShoppingCart } from "react-icons/fa";
 
 interface CardProps {
   description: string;
@@ -12,7 +13,7 @@ interface CardProps {
   name: string;
   price: number;
   onClick?: () => void;
-  onCartClick?: (e:any) => void;
+  onCartClick?: (e: any) => void;
 }
 
 const Card: FC<CardProps> = ({ description, image, name, price, onClick, onCartClick }) => {
@@ -42,17 +43,13 @@ const Card: FC<CardProps> = ({ description, image, name, price, onClick, onCartC
 
       <div>
         <p className="mt-2 text-gray-600 text-sm md:text-base text-center">{description}</p>
-        <p className="mt-2 text-lg font-bold text-blue-600">${price}</p>
+        <p className="mt-2 text-lg font-bold text-colorPrimario">${price}</p>
       </div>
 
       <div>
         {isAuth && (
           <Button onClick={onCartClick}>
-            <img 
-              src="https://img.icons8.com/?size=100&id=23169&format=png&color=000000"
-              alt="Comprar"
-              className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
-            />
+            <FaShoppingCart className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" /> 
           </Button>
         )}
       </div>

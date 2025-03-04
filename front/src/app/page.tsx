@@ -1,8 +1,7 @@
-import HomeView from "@/views/homeView";
-import Landing from "./landing/page";
+import Landing from "@/views/landing"
 
 
 
-export default function Home() {
-  return <HomeView/>
+export default function landing() {
+  return <Landing/>
 }
