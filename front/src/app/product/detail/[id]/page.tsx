@@ -1,10 +1,12 @@
-import { getProduct } from '@/services/products';
-import ProductDetail from '@/views/productDetail';
-import React from 'react';
+import { getProduct } from '@/services/products'; 
+import ProductDetail from '@/views/productDetail'; 
 
 const Page = async ({ params }: { params: { id: string } }) => {
-    const id = Number(params.id);
-    const product = await getProduct(id);
+    
+    const { id } = await params; 
+    const productId = Number(id);
+
+    const product = await getProduct(productId);
 
     if (!product) {
         return <div>Producto no encontrado</div>;
