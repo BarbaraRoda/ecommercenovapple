@@ -4,3 +4,5 @@ import React from "react";
 const landing = async () => {
     return <Landing/>
 };
+
+export default landing;

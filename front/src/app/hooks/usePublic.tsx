@@ -1,5 +1,5 @@
 import { useAuth } from "@/context/authContext";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { routes } from "../routes/routes";
 import { useRouter } from "next/navigation";
 
