@@ -6,27 +6,29 @@ type PageProps = {
 };
 
 const Page = async ({ params }: PageProps) => {
-    const { id } = params; // Aquí no es necesario `await`, params es un objeto
-    const productId = Number(id);
+  const { id } = params;  // Aquí, params no es una promesa
 
-    const product = await getProduct(productId);
+  const productId = Number(id);
 
-    if (!product) {
-        return <div>Producto no encontrado</div>;
-    }
+  // Espera a que el producto sea obtenido
+  const product = await getProduct(productId);
 
-    const safeProduct = {
-        name: product.name || "Producto sin nombre",
-        description: product.description || "Sin descripción",
-        image: product.image || "/placeholder.png",
-        price: product.price || 0,
-    };
+  if (!product) {
+    return <div>Producto no encontrado</div>;
+  }
 
-    return (
-        <div>
-            <ProductDetail {...safeProduct} />
-        </div>
-    );
+  const safeProduct = {
+    name: product.name || "Producto sin nombre",
+    description: product.description || "Sin descripción",
+    image: product.image || "/placeholder.png",
+    price: product.price || 0,
+  };
+
+  return (
+    <div>
+      <ProductDetail {...safeProduct} />
+    </div>
+  );
 };
 
 export default Page;
