@@ -2,8 +2,7 @@ import { getProduct } from '@/services/products';
 import ProductDetail from '@/views/productDetail'; 
 
 const Page = async ({ params }: { params: { id: string } }) => {
-    
-    const { id } = await params; 
+    const { id } = params; // Aquí ya no es necesario el `await`
     const productId = Number(id);
 
     const product = await getProduct(productId);
