@@ -1,8 +1,12 @@
 import { getProduct } from '@/services/products'; 
 import ProductDetail from '@/views/productDetail'; 
 
-const Page = async ({ params }: { params: { id: string } }) => {
-    const { id } = params; // Aquí ya no es necesario el `await`
+type PageProps = {
+  params: { id: string };
+};
+
+const Page = async ({ params }: PageProps) => {
+    const { id } = params; // Aquí no es necesario `await`, params es un objeto
     const productId = Number(id);
 
     const product = await getProduct(productId);
