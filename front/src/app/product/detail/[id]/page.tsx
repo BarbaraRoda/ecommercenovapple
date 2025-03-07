@@ -1,16 +1,15 @@
-import { getProduct } from '@/services/products'; 
-import ProductDetail from '@/views/productDetail'; 
+import { getProduct } from '@/services/products';
+import ProductDetail from '@/views/productDetail';
 
 type PageProps = {
   params: { id: string };
 };
 
 const Page = async ({ params }: PageProps) => {
-  const { id } = params;  // Aquí, params no es una promesa
+  const { id } = params;
 
+  // Asegúrate de que `getProduct` esté bien manejado
   const productId = Number(id);
-
-  // Espera a que el producto sea obtenido
   const product = await getProduct(productId);
 
   if (!product) {
