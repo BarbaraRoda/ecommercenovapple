@@ -2,8 +2,8 @@ import { getProduct } from '@/services/products';
 import ProductDetail from '@/views/productDetail';
 
 type PageProps = {
-  params: { id: string };
-};
+    params: Awaited<{ id: string }>; // Forzar que params NO sea una promesa
+  };  
 
 const Page = async ({ params }: PageProps) => {
   const { id } = params;
